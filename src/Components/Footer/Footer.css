@@ -1,0 +1,100 @@
+.custom-footer {
+  background: linear-gradient(135deg, #3a1c71, #469ec4);
+  color: #ddd;
+  padding: 60px 0 20px;
+  font-size: 14px;
+}
+
+.footer-col {
+  margin-bottom: 30px;
+}
+
+.footer-title {
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.icon-circle {
+  color: #ff6ec7;
+  margin-right: 8px;
+}
+
+.email {
+  color: #ff6ec7;
+}
+
+.news-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.news-item img {
+  border-radius: 6px;
+}
+
+.news-item p {
+  margin: 0;
+  font-size: 13px;
+  color: #eee;
+}
+
+.news-item small {
+  color: #aaa;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 8;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footer-links li:hover {
+  color: #ff6ec7;
+}
+
+.newsletter {
+  display: flex;
+  margin-top: 15px;
+}
+
+.newsletter input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+.newsletter button {
+  background: #ff6ec7;
+  border: none;
+  padding: 0 15px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.insta-grid img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin-top: 40px;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #aaa;
+}

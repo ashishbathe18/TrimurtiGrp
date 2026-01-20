@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="260" height="120">
+  <defs>
+    <!-- Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD966"></stop>
+      <stop offset="50%" stop-color="#F4C430"></stop>
+      <stop offset="100%" stop-color="#C99700"></stop>
+    </linearGradient>
+
+    <!-- Dark Gradient -->
+    <linearGradient id="darkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1B1B1B"></stop>
+      <stop offset="100%" stop-color="#2F2F2F"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Circular Export Arrow -->
+  <path d="M200 80
+       A140 140 0 1 1 150 320" fill="none" stroke="url(#goldGrad)" stroke-width="16" stroke-linecap="round"></path>
+
+  <!-- Arrow Head -->
+  <polygon points="150,30 210,70 180,95" fill="url(#goldGrad)"></polygon>
+
+  <!-- Airplane -->
+  <path d="M330 80
+       L520 40
+       L490 90
+       L620 130
+       L590 160
+       L460 120
+       L410 160
+       L385 145
+       L425 110
+       Z" fill="url(#goldGrad)"></path>
+
+  <!-- Truck Container -->
+  <rect x="200" y="210" width="300" height="85" rx="12" fill="url(#darkGrad)"></rect>
+
+  <!-- Cargo Lines -->
+  <line x1="240" y1="210" x2="240" y2="295" stroke="#FFD966" stroke-width="4"></line>
+  <line x1="290" y1="210" x2="290" y2="295" stroke="#FFD966" stroke-width="4"></line>
+  <line x1="340" y1="210" x2="340" y2="295" stroke="#FFD966" stroke-width="4"></line>
+
+  <!-- Truck Cabin -->
+  <rect x="520" y="195" width="120" height="100" rx="14" fill="url(#darkGrad)"></rect>
+
+  <!-- Cabin Window -->
+  <rect x="545" y="215" width="60" height="35" rx="6" fill="#FFD966" opacity="0.9"></rect>
+
+  <!-- Wheels -->
+  <circle cx="270" cy="315" r="18" fill="url(#goldGrad)"></circle>
+  <circle cx="390" cy="315" r="18" fill="url(#goldGrad)"></circle>
+  <circle cx="565" cy="315" r="18" fill="url(#goldGrad)"></circle>
+
+  <!-- Brand Text -->
+  <text x="690" y="180" text-anchor="middle" font-size="44" font-weight="700" fill="#1B1B1B" font-family="Arial, Helvetica, sans-serif">
+    TRIMURTI
+  </text>
+
+  <text x="690" y="220" text-anchor="middle" font-size="28" letter-spacing="2" fill="#C99700" font-family="Arial, Helvetica, sans-serif">
+    GROUP
+  </text>
+
+  <text x="690" y="255" text-anchor="middle" font-size="16" fill="#555" font-family="Arial, Helvetica, sans-serif">
+    Global Export Solutions
+  </text>
+</svg>

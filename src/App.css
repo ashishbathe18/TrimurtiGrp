@@ -1,0 +1,11 @@
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #fff;
+}
+
+.navlink {
+  color: white !important;
+  margin-right: 12px;
+  text-decoration: none;
+  font-weight: 600;
+}

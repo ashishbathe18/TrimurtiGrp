@@ -1,0 +1,70 @@
+/* ================= PAGE CONTAINER ================= */
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  overflow-x: hidden;
+}
+
+/* TITLE */
+.container h3 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  color: #1f3d2b;
+  margin-bottom: 32px;
+}
+
+/* ================= PRODUCT GRID ================= */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  justify-items: center; /* 🔑 center cards like Vision */
+}
+
+/* EACH CARD COLUMN */
+.product-grid > div {
+  width: 100%;
+  /* 🔑 SAME size everywhere */
+  max-width: 360px; 
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Medium screens */
+@media (max-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile & ultra-small */
+@media (max-width: 576px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    
+  }
+
+  .product-grid > div {
+    max-width: 100%; /* 🔑 full width card */
+  }
+
+   /* 🔑 CENTER CARD + SAFE SPACE FOR WHATSAPP */
+  .product-card {
+    width: 100%;
+    max-width: 360px;   /* 👈 center look like 2nd image */
+    margin: 0 auto;
+    /* 👈 WhatsApp overlap fix */
+    padding-right: 56px; 
+  }
+}

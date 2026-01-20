@@ -1,0 +1,139 @@
+/* HERO */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 60vh;            /* FULL SCREEN HEIGHT */
+  overflow: hidden;
+}
+
+/* IMAGE FULL SCREEN */
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* IMPORTANT */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.breadcrumb-text {
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.hero-title {
+  font-size: 64px;
+  font-weight: 700;
+}
+
+/* GALLERY */
+.gallery-section {
+  padding: 70px 0;
+}
+
+.gallery-title {
+  font-size: 32px;
+  font-weight: 500;
+  color: #444;
+}
+
+.gallery-subtitle {
+  max-width: 520px;
+  margin: 10px auto 30px;
+  color: #7a876c;
+}
+
+/* FILTER BUTTONS */
+.filter-buttons button {
+  border: 1px solid #52c7d6;
+  background: transparent;
+  padding: 8px 24px;
+  border-radius: 50px;
+  margin: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-buttons button.active,
+.filter-buttons button:hover {
+  background: #3668d5;
+  color: #fff;
+}
+
+/* IMAGE GRID */
+.gallery-card {
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.06);
+}
+.cta-wrapper {
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.cta-box {
+  width: 85%;
+  background-color: #359bc0;
+  border-radius: 40px;
+  padding: 50px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.cta-content {
+  max-width: 650px;
+}
+
+.cta-subtitle {
+  color: #f4c44c;
+  font-size: 28px;
+  font-weight: 600;
+  font-family: "cursive";
+  margin-bottom: 12px;
+}
+
+.cta-text {
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.cta-btn {
+  background-color: #f4c44c;
+  color: #1f3b2c;
+  border: none;
+  padding: 14px 34px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #e2b33d;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .cta-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+    padding: 40px 30px;
+  }
+}

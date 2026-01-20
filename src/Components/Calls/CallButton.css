@@ -1,0 +1,30 @@
+.call-float {
+  position: fixed;
+  bottom: 90px; /* above WhatsApp */
+  right: 20px;
+  z-index: 9999;
+
+  width: 56px;
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #177fe8; 
+  border-radius: 50%;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.call-float img {
+  width: 50px;
+  height: 50px;
+}
+
+.call-float:hover {
+  transform: scale(1.1);
+}
