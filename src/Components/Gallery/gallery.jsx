@@ -9,21 +9,21 @@ import jaggery from "../../assets/agro/jaggery.jpeg";
 import teas from "../../assets/agro/Te.jpeg";
 import powder from "../../assets/agro/powde.jpeg";
 import halad from "../../assets/agro/hala.jpeg";
-// import nature from "../../assets/agro/images.png"
 import blanket from "../../assets/agro/bla.jpeg";
 import Towel from "../../assets/agro/towe.jpeg";
 import small from "../../assets/agro/small.jpeg";
 import nail from "../../assets/agro/nai.jpeg";
 import roofing from "../../assets/agro/roofin.jpeg";
 import binding from "../../assets/agro/bindin.jpeg";
+
 import { Link } from "react-router-dom";
 
 const images = [
   { id: 1, src: agro, category: "turmeric" },
-  { id: 2, src: coconat, category: "coconat" },
+  { id: 2, src: coconat, category: "coconut" },
   { id: 3, src: jaggery, category: "jaggery" },
-  { id: 4, src: teas, category: "teas" },
-  { id: 5, src: powder, category: "jaggery " },
+  { id: 4, src: teas, category: "tea" },
+  { id: 5, src: powder, category: "jaggery" },
   { id: 6, src: halad, category: "halad" },
   { id: 7, src: Towel, category: "big towel" },
   { id: 8, src: blanket, category: "solapuri blanket" },
@@ -43,30 +43,34 @@ export default function Portfolio() {
 
   return (
     <div>
-
-      {/* ================= SEO HELMET ================= */}
+      {/* ================= SEO ================= */}
       <Helmet>
         <title>Product Gallery | Trimurti Group India</title>
         <meta
           name="description"
-          content="Explore the product gallery of Trimurti Group India featuring turmeric, jaggery, coconut, tea, textiles, Solapuri blankets, towels, and construction nails exported worldwide."
+          content="Explore the product gallery of Trimurti Group India featuring turmeric, jaggery, coconut, tea, textiles, Solapuri blankets, towels, and construction nails."
         />
-        <meta
-          name="keywords"
-          content="Trimurti Group Gallery, Product Gallery India, Turmeric Export, Jaggery Export, Textile Export, Construction Nails Export"
-        />
-        <meta name="author" content="Trimurti Group India" />
       </Helmet>
 
-      {/* GALLERY SECTION */}
+      {/* ================= HERO GALLERY TITLE ================= */}
+      <section className="gallery-hero"style={{color:"white"}}>
+        <div className="gallery-hero-overlay"></div>
+        <div className="gallery-hero-content">
+          <h1 className="gallery-hero-title  fw-bold">Our Product Gallery</h1>
+          <p className="gallery-hero-subtitle fw-bold">
+              Premium Indian products exported worldwide
+          </p>
+        </div>
+      </section>
+
+      {/* ================= GALLERY ================= */}
       <section className="gallery-section">
         <div className="container text-center">
-          <h3 className="gallery-title fw-bold">Gallery of all products</h3>
-          <p className="gallery-subtitle fw-bold ">
-            A glimpse of our premium products exported worldwide.
+          <h3 className="gallery-title fw-bold">Gallery of All Products</h3>
+          <p className="gallery-subtitle fw-bold">
+            A glimpse of our premium products
           </p>
 
-          {/* IMAGE GRID */}
           <div className="row g-4">
             {filteredImages.map((img) => (
               <div className="col-lg-4 col-md-6" key={img.id}>
@@ -79,19 +83,19 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* ================= CTA ================= */}
       <section className="cta-wrapper">
         <div className="cta-box">
           <div className="cta-content">
             <h4 className="cta-subtitle">Let’s Build Global Partnerships</h4>
             <p className="cta-text">
-              Exporting premium termaric, jaggery, Tea, coconat, solapuri blanket,
-              Towels, construction nail, Roofing nail, Binding nail, and fresh
-              produce with global quality standards.
+              Exporting turmeric, jaggery, tea, coconut, solapuri blankets,
+              towels and construction nails with global standards.
             </p>
           </div>
 
           <Link to="/contact">
-            <button className="home-btn">get in touch</button>
+            <button className="home-btn">Get In Touch</button>
           </Link>
         </div>
       </section>

@@ -2,8 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Contact.css";
 
+// ✅ LOCAL HERO IMAGE IMPORT (IMPORTANT)
+import hand from "../../assets/agro/contact.png";
+
 function Contact() {
   const baseURL = import.meta.env.VITE_API_BASE_URL;
+  const domainName = import.meta.env.VITE_DOMAIN_NAME;
 
   /* ---------------- FORM STATE ---------------- */
   const [formData, setFormData] = useState({
@@ -14,20 +18,27 @@ function Contact() {
     message: "",
   });
 
-  /* ---------------- CONTACT PAGE DATA STATE ---------------- */
+  /* ---------------- PAGE DATA ---------------- */
   const [contactData, setContactData] = useState(null);
-  
+
+  /* ---------------- FETCH CONTACT PAGE ---------------- */
   useEffect(() => {
     const fetchContactPage = async () => {
-      const res = await axios.get(`${baseURL}/contact-page`, {
-        params: { domainName: "trimurthigroup.com" },
-      });
-      setContactData(res.data);
+      try {
+        const res = await axios.get(`${baseURL}/contact-page`, {
+          params: { domainName },
+        });
+        setContactData(res.data.data || res.data);
+      } catch (err) {
+        console.error("Contact page error:", err);
+      }
     };
+
     fetchContactPage();
   }, []);
 
   if (!contactData) return <div className="loading">Loading...</div>;
+
   /* ---------------- FORM HANDLERS ---------------- */
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,13 +46,18 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      await axios.post(`${baseURL}/contact/submit`, {
-        ...formData,
-        domain: "trimurthigroup.com",
+      await axios.post(`${baseURL}/contact`, {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+        domainName: domainName, // ✅ IMPORTANT
       });
 
-      alert("Message sent successfully ✅");
+      alert("Enquiry submitted successfully ✅");
+
       setFormData({
         name: "",
         email: "",
@@ -49,113 +65,78 @@ function Contact() {
         city: "",
         message: "",
       });
-    } catch (error) {
+    } catch (err) {
+      console.error("Submit error:", err);
       alert("Something went wrong ❌");
     }
   };
 
   return (
     <div className="contact-page">
-      {/* HEADER */}
-      <section className="contact-header">
-        <h1>{contactData.pageTitle || "Contact Us"}</h1>
-        <p>{contactData?.subtitle || "We’d love to hear from you"}</p>
+      {/* ================= HERO SECTION ================= */}
+      <section
+        className="contact-hero"
+        style={{
+          backgroundImage: `url(${contactData?.heroImage || hand})`,
+        }}
+      >
+        <div className="hero-overlay">
+          <h1>{contactData.pageTitle || "Contact Us"}</h1>
+          <p>{contactData.subtitle || "We’d love to hear from you"}</p>
+        </div>
       </section>
-      
-      {/* CONTACT CONTENT */}
+
+      {/* ================= CONTACT CONTENT ================= */}
       <section className="contact-wrapper">
         <div className="contact-container">
-          
           {/* LEFT INFO */}
-          <div className="contact-info">
+          <div className="contact-info ">
             <h3>{contactData.pageTitle}</h3>
-            
-            <div className="info-block">
-              <h6>Visit us</h6>
-              <p>
-                {contactData.description }
-              </p>
-            </div>
-
-            <div className="info-block">
-              <h6>Email</h6>
-              <p>{contactData?.email || "trimurtigroupindia121@gmail.com"}</p>
-            </div>
-
-            <div className="info-block">
-              <h6>Call</h6>
-              <p>{contactData?.phone || "+91 95119 28410"}</p>
-            </div>
-
-            <div className="social-icons">
-              {contactData?.facebook && (
-                <a href={contactData.facebook} target="_blank">
-                  <i className="bi bi-facebook"></i>
-                </a>
-              )}
-              {contactData?.instagram && (
-                <a href={contactData.instagram} target="_blank">
-                  <i className="bi bi-instagram"></i>
-                </a>
-              )}
-              {contactData?.linkedin && (
-                <a href={contactData.linkedin} target="_blank">
-                  <i className="bi bi-linkedin"></i>
-                </a>
-              )}
-              {contactData?.twitter && (
-                <a href={contactData.twitter} target="_blank">
-                  <i className="bi bi-twitter"></i>
-                </a>
-              )}
-            </div>
+            <p>Address: {contactData.description}</p>
+            <p><strong>Email:</strong> {contactData.email}</p>
+            <p><strong>Phone:</strong> {contactData.phone}</p>
           </div>
 
           {/* RIGHT FORM */}
           <div className="contact-form">
             <form onSubmit={handleSubmit}>
-              <label>Name</label>
               <input
-                type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
+                placeholder="Your Name"
                 required
               />
 
-              <label>Email</label>
               <input
-                type="email"
                 name="email"
+                type="email"
                 value={formData.email}
                 onChange={handleChange}
+                placeholder="Your Email"
                 required
               />
 
-              <label>Phone</label>
               <input
-                type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
+                placeholder="Phone Number"
                 required
               />
 
-              <label>City</label>
               <input
-                type="text"
                 name="city"
                 value={formData.city}
                 onChange={handleChange}
-                required
+                placeholder="City"
               />
 
-              <label>Message</label>
               <textarea
-                rows="4"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
+                placeholder="Your Message"
                 required
               />
 
@@ -165,24 +146,20 @@ function Contact() {
         </div>
       </section>
 
-      {/* MAP SECTION */}
+      {/* ================= MAP SECTION ================= */}
       <section className="map-section">
         <div className="container">
           <h2 className="map-title">Our Location</h2>
-          <p className="map-address">
-           {contactData.description }
-          </p>
+          <p className="map-address">{contactData.description}</p>
 
           <div className="map-embed">
             <iframe
-              title="Trimurti Group India Location"
+              title="Location Map"
               src={`https://www.google.com/maps?q=${
-                contactData?.mapQuery ||
+                contactData.mapQuery ||
                 "Gat No 74 Dhondiraj Colony Palus Karad Road Palus Sangli Maharashtra"
               }&output=embed`}
-              allowFullScreen
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
         </div>

@@ -29,16 +29,19 @@
   text-align: center;
   color: white;
   z-index: 2; /* IMPORTANT */
+
 }
 
 .about-hero-overlay h1 {
   font-size: 3.5rem;
   margin-bottom: 15px;
+  animation: slideDown 1.2s ease forwards;
 }
 
 .about-hero-overlay p {
   font-size: 1.3rem;
   max-width: 700px;
+  animation: slideDown 1.2s ease forwards;
 }
 
 /* OVERVIEW */

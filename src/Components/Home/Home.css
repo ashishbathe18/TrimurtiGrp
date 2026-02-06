@@ -36,6 +36,7 @@
 .hero-image.active {
   opacity: 1;
   transform: scale(1);
+  
 }
 
 /* Hero Content */
@@ -46,6 +47,7 @@
   color: #fff;
   max-width: 800px;
   padding: 0 20px;
+  animation: slideDown 1.2s ease forwards;
 }
 
 .hero-content h6 {
@@ -108,7 +110,7 @@
 .about-home p {
   max-width: 850px;
   margin: auto;
-  font-size: 16px;
+  font-size: 19px;
   line-height: 1.8;
   color: #555;
 }
@@ -251,7 +253,7 @@
 .final-cta p {
   max-width: 700px;
   margin: auto;
-  font-size: 16px;
+  font-size: 19px;
   line-height: 1.7;
 }
 
